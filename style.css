@@ -1,0 +1,307 @@
+html {
+    height: 100%;
+    font-family: 'Lexend', sans-serif;
+}
+body {
+    position: relative;
+    overflow: hidden; 
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background: linear-gradient(to right top, #c144cd, #c951ce, #d15ecf, #d86ad1, #df76d3, #ec76c8, #f778be, #ff7bb3, #ff7993, #ff826e, #ff9546, #ffac11);
+}
+
+.main {
+    height: 650px;
+    width: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template: 15% 85% / 50% 50%;
+}
+
+.do {
+    grid-row: 1;
+    grid-column: 1;
+    border-top-left-radius: 10px;
+    border-right: 1px solid #b8b8b8;
+}
+
+.done {
+    grid-row: 1;
+    grid-column: 2;
+    border-bottom: 2px solid #b8b8b8;
+    border-left: 1px solid #b8b8b8;
+    background-color: #d6d6d6;
+    border-top-right-radius: 10px;
+    
+}
+
+.do, .done {
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+}
+
+.bi {
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.task {
+    grid-row: 2;
+    grid-column: 1;
+    grid-column: 1 / 3;
+    overflow: hidden;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 1rem;
+}
+
+.addBth {
+    position: absolute;
+    bottom: -40px;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    margin-left: -40px;
+    z-index: 10;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #d6d6d6;
+    outline: none;
+    
+}
+
+.plus {
+    background-image: url("./plus.svg");
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%;
+}
+
+.trash {
+    background-image: url("./trash-fill.svg");
+    background-repeat:no-repeat;
+    background-position: center;
+    -moz-background-size: 55%; /* Firefox 3.6+ */
+    -webkit-background-size: 55%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 55%; /* Opera 9.6+ */
+    background-size: 55%;
+}
+
+/* .substrate {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -20px;
+    z-index: 9;
+    background-color:;
+    border-radius: 50%;
+    height: 45px;
+    width: 40px;
+} */
+
+.container {
+    width: 80%;
+    height: 90%;
+    margin: 10px auto;
+    padding-top: 10px;
+    overflow: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 24px;
+    position: relative;
+}
+
+.date {
+    flex-grow: 1;
+    text-align: right;
+    margin-top: 2px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #b8b8b8;
+}
+
+.taskItem > input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    margin: 0 6px;
+}
+
+.strike {
+    position: relative;
+}
+
+.taskItem > input[type="checkbox"]:checked+.strike {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 34px;
+    width: 88%;
+    height: 2px;
+    background: black;
+    animation-name: strike;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; 
+}
+
+.striked {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 98%;
+    height: 2px;
+    background: black;
+}
+
+
+@keyframes strike {
+    0%   { width : 0; }
+    100% { width: 88%; }
+}
+/* ::-webkit-scrollbar {
+    width: 10px;
+} */
+::-webkit-scrollbar-track {
+    background:transparent; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #969696; 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #969696; 
+}
+
+.container::-webkit-scrollbar { 
+    width: 8px !important;
+    height: 0 !important;
+}
+
+.shadow {
+    display: none;
+    position: absolute;
+    z-index: 900;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form {
+    position: absolute;
+    z-index: 1000;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 250px;
+    width:  550px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    overflow: hidden;
+}
+
+.form > input[type="text"] {
+    line-height: 1.8;
+    width: 55%;
+    margin-top: 45px;
+    border-radius: 6px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.form > input[type="text"]:hover {
+    background-color: rgb(241, 241, 241);
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.form > input[type="text"]:focus {
+    background-color: rgb(241, 241, 241);
+    outline: none;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.form > h1 {
+    margin-top: 20px;
+    letter-spacing: 3px;
+}
+
+.submit {
+    display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: 45px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 6px;
+    outline: none;
+    letter-spacing: 2px;
+    background: linear-gradient(to right top, #c144cd, #c951ce, #d15ecf, #d86ad1, #df76d3, #ec76c8, #f778be, #ff7bb3, #ff7993, #ff826e, #ff9546, #ffac11);
+}
+
+.x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    padding: 0;
+}
+
+.f-show {
+    display: block;
+    animation: showBlock 0.3s linear forwards;
+}
+
+@keyframes showBlock {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@media screen and (max-width: 992px) {
+    .form {
+        width: 450px;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    html {
+        max-width: 600px !important;
+    }
+    .main {
+        width: 90%;
+    }
+    .form {
+        width: 95%;
+    }
+}
